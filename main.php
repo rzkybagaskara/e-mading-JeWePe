@@ -17,6 +17,7 @@
     <!-- Cards -->
     <div class="grid p-1 gap-2">
         <div class="row">
+            <!-- TODO tambahin check if di dalam while untuk cek apakah status artikel sudah publish, jika iya baru ditampilkan ke main.php di dalam card -->
             <?php
             while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -24,7 +25,7 @@
                     <div class="card" style="width: 18rem;">
                         <?php
                         $baseURL = 'public/img/';
-                        $gambar = $row['gambar']; // Correct variable name
+                        $gambar = $row['gambar'];
                         $imagePath = $baseURL . $gambar;
 
                         if (!empty($gambar) && file_exists($imagePath)) {
@@ -36,7 +37,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['judul']; ?></h5>
                             <p class="card-text"><?php echo $row['isi']; ?></p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <!-- TODO lempar detail artikel ke halaman baru -->
+                            <a href="#" class="btn btn-primary">Detail Artikel</a>
                         </div>
                     </div>
                 </div>

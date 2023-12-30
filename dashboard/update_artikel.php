@@ -65,6 +65,7 @@
              
               <!-- Button -->
               <div class="button-placements grid">
+                  <input type="hidden" name="update_id" value="<?php echo $row['id_artikel']?>"> 
                   <button type="submit" class="btn btn-primary text-center w-100 mb-3">Update Artikel</button>
               </div>
 
