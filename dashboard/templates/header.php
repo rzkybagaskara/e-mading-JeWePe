@@ -15,7 +15,7 @@
 <body>
     <!-- Navbar -->
     <div class="top-navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-primary text-white">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Sekolah JeWePe</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
