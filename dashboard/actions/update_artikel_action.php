@@ -2,7 +2,7 @@
   include "../templates/sidebar.php";
   require '../../config/koneksi.php';
   
-  // TODO update belum bisa bekerja dengan benar
+  // TODO remove unwanted comments
   // cek artikel sudah sesuai dengan id dan post tersebut ada (count > 0)
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($_POST) > 0) {
     //cocokkan variabel dengan name
