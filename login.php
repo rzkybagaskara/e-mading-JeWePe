@@ -12,16 +12,21 @@
 
       // query
       $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
-
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-      $count = mysqli_num_rows($result);
-      
-      // jika match maka tampilkan dashboard
-      if ($count == 1) {
-        header("Location: dashboard/daftar_artikel.php");
-        exit(); //stop script
-      }
+        
+        // simpan username dan password dengan session
+        if(is_array($row)){
+            $_SESSION["username"] = $row['username'];
+            $_SESSION["password"] = $row['password'];
+        }
+        // jika sessionnya sama maka lempar ke halaman daftar_artikel.php
+        if(isset($_SESSION["username"]) && isset($_SESSION["password"])){
+            header("Location: dashboard/daftar_artikel.php");
+            exit(); //stop script
+        }else{
+            echo '<script>alert("Username atau Password salah!") </script>';
+        }
     }
   }
 ?>
