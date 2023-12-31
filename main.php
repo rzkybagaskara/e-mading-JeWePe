@@ -1,11 +1,12 @@
-<!DOCTYPE html>
 <?php
-include "dashboard/templates/header.php";
-require "config/koneksi.php";
+    include "dashboard/templates/header.php";
+    require "config/koneksi.php";
 
-$sql = "SELECT * FROM artikel";
-$result = mysqli_query($conn, $sql)
+    // tampilkan artikel dimana statusnya adalah Publish
+    $sql = "SELECT * FROM artikel WHERE status_artikel = 'Publish'";
+    $result = mysqli_query($conn, $sql)
 ?>
+
 <!-- Header Text -->
 <div class="header-text">
     <h3 class="mt-1 ml-1">e-Mading JeWePe</h3>
@@ -18,7 +19,6 @@ $result = mysqli_query($conn, $sql)
     <!-- Cards -->
     <div class="grid p-1 gap-2">
         <div class="row">
-            <!-- TODO tambahin check if di dalam while untuk cek apakah status artikel sudah publish, jika iya baru ditampilkan ke main.php di dalam card -->
             <?php
             while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -38,8 +38,8 @@ $result = mysqli_query($conn, $sql)
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['judul']; ?></h5>
                         <p class="card-text text-truncate"><?php echo $row['isi']; ?></p>
-                        <!-- TODO lempar detail artikel ke halaman baru -->
-                        <a href="#" class="btn btn-primary">Detail Artikel</a>
+                        <a href="detail.php?id_artikel=<?php echo $row['id_artikel']; ?>" class="btn btn-primary">Detail
+                            Artikel</a>
                     </div>
                 </div>
             </div>
@@ -49,8 +49,5 @@ $result = mysqli_query($conn, $sql)
         </div>
     </div>
 </div>
-
-</div>
-</body>
 
 </html>
