@@ -12,22 +12,29 @@
     $uploader = $_POST['uploader'];
     $status_artikel = $_POST['status_artikel'];
 
-    $upload_directory = "../../public/img/";
-    $uploaded_pict = $_FILES['upload_gambar'];
+    // cek apakah gambar sudah ada di public/img
+    if(!empty($_FILES['upload_gambar']['name'])){
+      $upload_directory = "../../public/img/";
+      $uploaded_pict = $_FILES['upload_gambar'];
 
-    // unique file names (pict)
-    $unique_pictname = uniqid() . '_' . $uploaded_pict['name'];
+      // unique file names (pict)
+      $unique_pictname = uniqid() . '_' . $uploaded_pict['name'];
 
-    // move pict
-    $target_path = $upload_directory . $unique_pictname;
-    move_uploaded_file($uploaded_pict['tmp_name'], $target_path);
-    
-    $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `gambar` = '$target_path', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
+      // move pict
+      $target_path = $upload_directory . $unique_pictname;
+      move_uploaded_file($uploaded_pict['tmp_name'], $target_path);
+
+      // masukkan path gambar pada query SQL
+      $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `gambar` = '$target_path', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
+    }else{
+      // jika tidak ada gambar yang di upload, pakai gambar yang lama
+      $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
+    }
 
     if (mysqli_query($conn, $sql)) {
       echo '<script>alert("Data berhasil terupdate!")</script>';
       header("Location: ../daftar_artikel.php");
-    } else {
+    }else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
@@ -35,5 +42,4 @@
     $result = mysqli_query($conn, "SELECT * FROM artikel WHERE id_artikel = '$update_id'");
     $row = mysqli_fetch_array($result);
   }
- 
 ?>
