@@ -12,7 +12,8 @@
     $uploader = $_POST['uploader'];
     $status_artikel = $_POST['status_artikel'];
 
-    // cek apakah gambar sudah ada di public/img
+    // cek apakah gambar sudah ada di public/img dengan negasi !empty()
+    // mengembalikan nilai true jika upload_gambarnya tidak kosong
     if(!empty($_FILES['upload_gambar']['name'])){
       $upload_directory = "../../public/img/";
       $uploaded_pict = $_FILES['upload_gambar'];
@@ -24,10 +25,10 @@
       $target_path = $upload_directory . $unique_pictname;
       move_uploaded_file($uploaded_pict['tmp_name'], $target_path);
 
-      // masukkan path gambar pada query SQL
+      // upload gambar baru karena gambar tidak ada pada public/img
       $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `gambar` = '$target_path', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
     }else{
-      // jika tidak ada gambar yang di upload, pakai gambar yang lama
+      // gambar ada, berarti gunakan gambar yang lama (jika admin tidak ingin mengubahnya)
       $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
     }
 
