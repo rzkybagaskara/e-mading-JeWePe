@@ -8,10 +8,9 @@
 ?>
 
 <!-- Header Text -->
-<div class="header-text">
-    <h3 class="mt-1 ml-1">e-Mading JeWePe</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas massa vel eros suscipit scelerisque.
-        Pellentesque varius justo et scelerisque commodo..</p>
+<div class="header-text text-center pb-3 pt-3">
+    <h3 class="mt-4 ml-1 pb-2">e-Mading JeWePe</h3>
+    <p class="mt-2">Website sekolah JeWePe untuk menampilkan elektronik mading kegiatan sekolah.</p>
 </div>
 
 <!-- Article Content -->
@@ -30,7 +29,7 @@
                         $imagePath = $baseURL . $gambar;
 
                         if (!empty($gambar) && file_exists($imagePath)) {
-                            echo '<img src="' . $imagePath . '" alt="Image" class="card-img-top">';
+                            echo '<img src="' . $imagePath . '" alt="Gambar Artikel" class="card-img-top img-thumbnail">';
                         } else {
                             echo 'Image not available';
                         }

@@ -23,9 +23,11 @@
 ?>
 
 <!-- Detail Artikel -->
-<div class="detail-artikel">
+<div class="detail-artikel ms-3 mt-3">
     <h3 class="mt-1 ml-1"> <?php echo $judul;?> </h3>
     <h5 class="mt-1 ml-1"> Uploader: <?php echo $uploader;?> </h5>
-    <img src="public/img/<?php echo $gambar; ?>" alt="Gambar Artikel" class="img-fluid">
+    <div class="text-center">
+        <img src="public/img/<?php echo $gambar; ?>" alt="Gambar Artikel" class="img-fluid mx-auto text-center">
+    </div>
     <p class="mt-1 ml-1"> <?php echo $isi; ?> </p>
 </div>

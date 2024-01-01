@@ -1,6 +1,7 @@
 <?php
   require '../config/koneksi.php';
   include "templates/sidebar.php";
+  
   if($_SERVER['REQUEST_METHOD'] == "GET"){
     $update_id = $_GET['update_id'];
     

@@ -4,10 +4,15 @@
 ?>
 
 <!-- Header Text -->
-<div class="header-text">
-    <h3 class="mt-1 ml-1">Sekolah JeWePe</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas massa vel eros suscipit scelerisque.
-        Pellentesque varius justo et scelerisque commodo..</p>
+<div class="header-text text-center pb-3 pt-3">
+    <h3 class="mt-4 ml-1 pb-2">Tentang Proyek</h3>
+    <div class="paragraph mt-2">
+        <p>
+            Proyek ini dibuat untuk menyelesaikan pelatihan persiapan Uji Kompetensi Junior Web Programmer yang diadakan
+            pada tanggal 27-30 Desember 2023.
+        </p>
+        <p class="fw-bold">Dibuat oleh Rizky Bagaskara (51420127)</p>
+    </div>
 </div>
 </body>
 

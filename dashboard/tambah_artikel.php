@@ -1,6 +1,7 @@
 <?php
   include "templates/sidebar.php";
 ?>
+
 <!-- Content Wrapper-->
 <div class="content-wrapper">
     <!-- Main content -->

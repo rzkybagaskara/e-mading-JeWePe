@@ -2,7 +2,6 @@
   include "../templates/sidebar.php";
   require '../../config/koneksi.php';
   
-  // TODO remove unwanted comments
   // cek artikel sudah sesuai dengan id dan post tersebut ada (count > 0)
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($_POST) > 0) {
     //cocokkan variabel dengan name
@@ -23,11 +22,7 @@
     $target_path = $upload_directory . $unique_pictname;
     move_uploaded_file($uploaded_pict['tmp_name'], $target_path);
     
-    // $sql = "UPDATE artikel SET judul = '$judul_artikel', isi = '$isi_artikel', gambar = '$target_path', uploader = '$uploader', status_artikel = '$status_artikel' WHERE id_artikel = '$update_id'";
-    
     $sql = "UPDATE `artikel` SET `judul` = '$judul_artikel', `isi` = '$isi_artikel', `gambar` = '$target_path', `uploader` = '$uploader', `status_artikel` = '$status_artikel' WHERE `id_artikel` = '$update_id'";
-
-    // $sql = "INSERT INTO artikel (judul, isi, gambar, uploader, status_artikel) VALUES ('$judul_artikel', '$isi_artikel', '$target_path', '$uploader', '$status_artikel')";
 
     if (mysqli_query($conn, $sql)) {
       echo '<script>alert("Data berhasil terupdate!")</script>';
